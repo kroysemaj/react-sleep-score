@@ -1,25 +1,31 @@
 import { sleepScoreDropdownOptions } from './helpers/sleepScoreDropdownOptions';
 
 const SleepScoreForm = () => {
+  const populateDropdown = () =>
+    sleepScoreDropdownOptions.map(scoreOption => {
+      const { sleepIncrements, text } = scoreOption;
+      return (
+        <option value={sleepIncrements} key={sleepIncrements}>
+          {text}
+        </option>
+      );
+    });
+
   return (
     <form>
-      <label for="duration-in-bed-select">Duration in bed:</label>
+      <label htmlFor="duration-in-bed-select">Duration in bed:</label>
       <select name="duration-in-bed" id="duration-in-bed-select">
-        <option value="">--Please choose an option--</option>
-        {sleepScoreDropdownOptions.map(scoreOption => (
-          <option value={scoreOption.sleepIncrements}>
-            {scoreOption.text}
-          </option>
-        ))}
+        <option value="" key="-1">
+          --Please choose an option--
+        </option>
+        {populateDropdown()}
       </select>
-      <label for="duration-asleep-select">Duration asleep:</label>
+      <label htmlFor="duration-asleep-select">Duration asleep:</label>
       <select name="duration-asleep" id="duration-asleep-select">
-        <option value="">--Please choose an option--</option>
-        {sleepScoreDropdownOptions.map(scoreOption => (
-          <option value={scoreOption.sleepIncrements}>
-            {scoreOption.text}
-          </option>
-        ))}
+        <option value="" key="-1">
+          --Please choose an option--
+        </option>
+        {populateDropdown()}
       </select>
       <button disabled>Calculate</button>
     </form>

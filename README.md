@@ -2,8 +2,9 @@
 
 An app for tracking entering and saving your Sleepio Sleep Score(tm).
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f4f79a27-3ae0-4618-bef5-46244bcd84d7/deploy-status)](https://app.netlify.com/sites/sleep-score/deploys)
 Production: https://sleep-score.netlify.app/
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f4f79a27-3ae0-4618-bef5-46244bcd84d7/deploy-status)](https://app.netlify.com/sites/sleep-score/deploys)
 
 Dependencies are locked with a `yarn.lock` file, so please use `yarn` and not
 `npm` for installing them.

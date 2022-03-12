@@ -1,6 +1,8 @@
+import SleepScore from './components/SleepScore';
+
 const App = () => (
   <div>
-    <h1>Hello, world!</h1>
+    <SleepScore />
   </div>
 );
 

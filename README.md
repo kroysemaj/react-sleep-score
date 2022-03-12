@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# Sleep Score
+
+An app for tracking entering and saving your Sleepio Sleep Score(tm).
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f4f79a27-3ae0-4618-bef5-46244bcd84d7/deploy-status)](https://app.netlify.com/sites/sleep-score/deploys)
+Production: https://sleep-score.netlify.app/
+
+Dependencies are locked with a `yarn.lock` file, so please use `yarn` and not
+`npm` for installing them.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -1,4 +1,4 @@
-import { sleepScoreDropdownOptions } from '../helpers/sleepScoreDropdownOptions';
+import { sleepScoreDropdownOptions } from './helpers/sleepScoreDropdownOptions';
 
 const DurationInBedSelect = ({ handleSelect, location }) => {
   const populateDropdown = () =>
@@ -20,7 +20,7 @@ const DurationInBedSelect = ({ handleSelect, location }) => {
         data-testid={`${location}-select`}
         onChange={handleSelect}
       >
-        <option value="-1" key="-1" role="option">
+        <option value="-1" key="-1">
           Select one
         </option>
         {populateDropdown()}

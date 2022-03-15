@@ -1,16 +1,13 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import DurationInBedSelect from '../DurationSelect/DurationSelect';
+import DurationSelect from '../DurationSelect';
 
 describe('Sleep Score', () => {
   it('update duration in bed value in store', () => {
     const updateDurationInBed = jest.fn().mockName('updateDurationInBed');
 
     render(
-      <DurationInBedSelect
-        handleSelect={updateDurationInBed}
-        location="in-bed"
-      />,
+      <DurationSelect handleSelect={updateDurationInBed} location="in-bed" />,
     );
 
     userEvent.selectOptions(screen.getByTestId('in-bed-select'), '1');
@@ -23,10 +20,7 @@ describe('Sleep Score', () => {
     const updateDurationAsleep = jest.fn().mockName('updateDurationAsleep');
 
     render(
-      <DurationInBedSelect
-        handleSelect={updateDurationAsleep}
-        location="asleep"
-      />,
+      <DurationSelect handleSelect={updateDurationAsleep} location="asleep" />,
     );
 
     userEvent.selectOptions(screen.getByTestId('asleep-select'), '1');

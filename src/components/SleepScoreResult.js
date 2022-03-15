@@ -1,7 +1,13 @@
-const SleepScoreResult = () => (
+import { connect } from 'react-redux';
+
+const SleepScoreResult = ({ result }) => (
   <p>
-    Calculated Sleep Score: <span></span>
+    Calculated Sleep Score: <span>{result !== -1 ? result : ''}</span>
   </p>
 );
 
-export default SleepScoreResult;
+const mapStateToProps = state => ({
+  result: state.sleepScore.score,
+});
+
+export default connect(mapStateToProps)(SleepScoreResult);

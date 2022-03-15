@@ -1,6 +1,6 @@
 import { sleepScoreDropdownOptions } from './helpers/sleepScoreDropdownOptions';
 
-const DurationInBedSelect = ({ handleSelect, location }) => {
+const DurationSelect = ({ handleSelect, location }) => {
   const populateDropdown = () =>
     sleepScoreDropdownOptions.map(scoreOption => {
       const { sleepIncrements, text } = scoreOption;
@@ -29,4 +29,4 @@ const DurationInBedSelect = ({ handleSelect, location }) => {
   );
 };
 
-export default DurationInBedSelect;
+export default DurationSelect;

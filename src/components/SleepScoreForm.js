@@ -1,11 +1,14 @@
-import { sleepScoreDropdownOptions } from './helpers/sleepScoreDropdownOptions';
-import DurationInBedSelect from './DurationSelect/DurationSelect';
+import DurationSelect from './DurationSelect';
 
-const SleepScoreForm = () => {
+const SleepScoreForm = ({
+  scores,
+  updateDurationInBed,
+  updateDurationAsleep,
+}) => {
   return (
     <form>
-      <DurationSelect location="in-bed" />
-      <DurationSelect location="asleep" />
+      <DurationSelect location="in-bed" handleSelect={updateDurationInBed} />
+      <DurationSelect location="asleep" handleSelect={updateDurationAsleep} />
       <button disabled>Calculate</button>
     </form>
   );

@@ -1,6 +1,6 @@
 const initialState = {
-  durationInBed: -1,
-  durationAsleep: -1,
+  durationInBed: '',
+  durationAsleep: '',
 };
 
 const UPDATE_DURATION_IN_BED = 'UPDATE_DURATION_IN_BED';

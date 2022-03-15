@@ -1,0 +1,6 @@
+x - When the User selects a value for both time inputs, then the button is enabled.
+- When the User clicks the button:
+  - The text displays “Loading”
+  - The frontend calculates a score (100 * duration_asleep/duration_in_bed)
+  - The frontend sends the score to some ”save” endpoint on some API via AJAX (you do not need to build a real API, but you might find it useful to create mock of endpoints for success and failure)
+  - When the browser receives a successful API response, then the score is displayed in the output text

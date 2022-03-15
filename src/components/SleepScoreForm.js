@@ -17,7 +17,7 @@ export const SleepScoreForm = ({
 
   const handleClick = e => {
     e.preventDefault();
-    const sleepScore = 100 * (durationAsleep / durationInBed);
+    const sleepScore = 100 * (durationInBed / durationAsleep);
     processSleepScore(sleepScore);
   };
 

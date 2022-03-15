@@ -1,4 +1,3 @@
-import { useReducer } from 'react';
 import SleepScoreForm from './SleepScoreForm';
 import SleepScoreResult from './SleepScoreResult';
 

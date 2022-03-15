@@ -1,6 +1,4 @@
-import { connect } from 'react-redux';
 import DurationSelect from './DurationSelect';
-import api from '../api';
 
 const SleepScoreForm = () =>
   //   {

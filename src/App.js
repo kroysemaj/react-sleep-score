@@ -1,9 +1,11 @@
+import { Provider } from 'react-redux';
+import store from './store';
 import SleepScore from './components/SleepScore';
 
 const App = () => (
-  <div>
+  <Provider store={store}>
     <SleepScore />
-  </div>
+  </Provider>
 );
 
 export default App;

@@ -1,8 +1,14 @@
 x - When the User selects a value for both time inputs, then the button is enabled.
 - When the User clicks the button:
-  - Dispatch saveSleepScore action
+  X - Dispatch saveSleepScore action
   - The text displays “Loading”
-  - The saveSleepScore action calculates a score (100 * duration_asleep/duration_in_bed)
-  - The saveSleepScore action sends the score to a mockoon save endpoint using axios (these could be decoupleed to deal with errors but wouldn't have to be)
-  - When the browser receives a successful API response (status:200), then the score is displayed in the output text
+  - The saveSleepScore action calculates a 
+  score (100 * duration_asleep/duration_in_bed)
+  - The saveSleepScore action sends the score 
+  to a Mockoon save endpoint using Axios (these 
+  could be decoupled to deal with errors but 
+  wouldn't have to be)
+  - When the browser receives a successful API 
+  response (status:200), then the score is 
+  displayed in the output text
 - Style using material UI

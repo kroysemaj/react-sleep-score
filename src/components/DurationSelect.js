@@ -11,6 +11,8 @@ const DurationSelect = ({ handleSelect, location }) => {
       );
     });
 
+  const handleChange = e => handleSelect(e.target.value);
+
   return (
     <>
       <label htmlFor={`${location}-select"`}>Duration in bed:</label>
@@ -18,7 +20,7 @@ const DurationSelect = ({ handleSelect, location }) => {
         name={location}
         id={`${location}-select`}
         data-testid={`${location}-select`}
-        onChange={handleSelect}
+        onChange={handleChange}
       >
         <option value="-1" key="-1">
           Select one

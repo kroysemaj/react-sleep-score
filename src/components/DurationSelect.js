@@ -15,7 +15,9 @@ const DurationSelect = ({ handleSelect, location }) => {
 
   return (
     <>
-      <label htmlFor={`${location}-select"`}>Duration in bed:</label>
+      <label htmlFor={`${location}-select"`}>{`Duration ${
+        location === 'asleep' ? 'asleep:' : 'in bed:'
+      }`}</label>
       <select
         name={location}
         id={`${location}-select`}

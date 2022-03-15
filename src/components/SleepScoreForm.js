@@ -17,7 +17,7 @@ export const SleepScoreForm = ({
 
   const handleClick = e => {
     e.preventDefault();
-    const sleepScore = Math.floor(100 * (durationInBed / durationAsleep));
+    const sleepScore = Math.floor(100 * (durationAsleep / durationInBed));
     processSleepScore(sleepScore);
   };
 
@@ -25,7 +25,7 @@ export const SleepScoreForm = ({
     <form>
       <DurationSelect location="in-bed" handleSelect={updateDurationInBed} />
       <DurationSelect location="asleep" handleSelect={updateDurationAsleep} />
-      <button disabled={formIsValid} onClick={handleClick}>
+      <button id="calc-btn" disabled={formIsValid} onClick={handleClick}>
         Calculate
       </button>
     </form>

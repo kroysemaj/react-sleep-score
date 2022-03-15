@@ -7,7 +7,7 @@ const client = axios.create({
 const api = {
   saveSleepScore(sleepScore) {
     return client
-      .post('/sleep-score/save', { sleepScore })
+      .get('/sleep-score/save', { sleepScore })
       .then(response => response.data);
   },
 };

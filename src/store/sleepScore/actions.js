@@ -3,7 +3,6 @@ export const UPDATE_DURATION_ASLEEP = 'UPDATE_DURATION_ASLEEP';
 export const PUBLISH_SLEEP_SCORE = 'PUBLISH_SLEEP_SCORE';
 
 export const updateDurationInBed = duration => {
-  console.log('#updateDurationInBed', duration);
   return {
     payload: duration,
     type: UPDATE_DURATION_IN_BED,
@@ -15,9 +14,9 @@ export const updateDurationAsleep = duration => ({
   type: UPDATE_DURATION_ASLEEP,
 });
 
-export const processSleepScore = (api, state, score) =>
+export const processSleepScore = score => (dispatch, getState, api) =>
   api.saveSleepScore(score).then(res => {
-    console.log(res);
+    dispatch(publishSleepScore(score));
   });
 
 export const publishSleepScore = sleepScore => ({

@@ -8,18 +8,17 @@ import {
 const initialState = {
   durationInBed: '',
   durationAsleep: '',
-  sleepScore: -1,
+  score: -1,
 };
 
 const sleepScore = (state = initialState, action = {}) => {
-  console.log('reducer action:', action);
   switch (action.type) {
     case UPDATE_DURATION_IN_BED:
       return { ...state, durationInBed: action.payload };
     case UPDATE_DURATION_ASLEEP:
       return { ...state, durationAsleep: action.payload };
     case PUBLISH_SLEEP_SCORE:
-      return { ...state, sleepScore: action.payload };
+      return { ...state, score: action.payload };
     default:
       return state;
   }

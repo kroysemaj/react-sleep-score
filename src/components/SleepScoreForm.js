@@ -1,29 +1,46 @@
+import { connect } from 'react-redux';
+import {
+  processSleepScore,
+  updateDurationAsleep,
+  updateDurationInBed,
+} from '../store/sleepScore/actions';
 import DurationSelect from './DurationSelect';
 
-const SleepScoreForm = () =>
-  //   {
-  //   scores,
-  //   updateDurationInBed,
-  //   updateDurationAsleep,
-  //   processSleepScore,
-  // }
-  {
-    // const formIsValid =
-    //   scores.durationAsleep === '' || scores.durationInBed === '';
+export const SleepScoreForm = ({
+  durationAsleep,
+  durationInBed,
+  processSleepScore,
+  updateDurationAsleep,
+  updateDurationInBed,
+}) => {
+  const formIsValid = durationAsleep === '' || durationInBed === '';
 
-    // const handleClick = e => {
-    //   e.preventDefault();
-    //   const sleepScore = 100 * (scores.durationInBed / scores.durationAsleep);
-    //   processSleepScore(api, scores, sleepScore);
-    // };
-
-    return (
-      <form>
-        <DurationSelect location="in-bed" />
-        <DurationSelect location="asleep" />
-        <button disabled>Calculate</button>
-      </form>
-    );
+  const handleClick = e => {
+    e.preventDefault();
+    const sleepScore = 100 * (durationAsleep / durationInBed);
+    processSleepScore(sleepScore);
   };
 
-export default SleepScoreForm;
+  return (
+    <form>
+      <DurationSelect location="in-bed" handleSelect={updateDurationInBed} />
+      <DurationSelect location="asleep" handleSelect={updateDurationAsleep} />
+      <button disabled={formIsValid} onClick={handleClick}>
+        Calculate
+      </button>
+    </form>
+  );
+};
+
+const mapStateToProps = state => ({
+  durationInBed: state.sleepScore.durationInBed,
+  durationAsleep: state.sleepScore.durationAsleep,
+});
+
+const mapDispatchToProps = {
+  processSleepScore,
+  updateDurationAsleep,
+  updateDurationInBed,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SleepScoreForm);

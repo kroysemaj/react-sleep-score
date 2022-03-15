@@ -1,25 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import SleepScoreForm from '../SleepScoreForm';
+import { SleepScoreForm } from '../SleepScoreForm';
 
 describe('Sleep score form', () => {
-  const scores = {
-    durationAsleep: 8,
-    durationInBed: 10,
-  };
   describe('calculate button', () => {
-    it('should save the sleep score', () => {
+    it('processes the inputs when the calculate button is clicked', () => {
       const processSleepScore = jest.fn().mockName('processSleepScore');
-      const mockApi = {
-        saveSleepScore: () => {},
-      };
 
-      render(
-        <SleepScoreForm
-          scores={scores}
-          processSleepScore={processSleepScore}
-        />,
-      );
+      render(<SleepScoreForm processSleepScore={processSleepScore} />);
 
       userEvent.click(screen.getByText('Calculate'));
 

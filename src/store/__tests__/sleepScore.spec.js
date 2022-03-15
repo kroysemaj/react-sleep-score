@@ -1,78 +1,76 @@
-/**
- * @jest-environment node
- */
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import sleepScoreReducer from '../sleepScore/reducers';
 import {
-  sleepScoreReducer,
   updateDurationInBed,
   updateDurationAsleep,
-  processSleepScore,
   publishSleepScore,
-  initialState,
-} from '../sleepScoreReducer';
+  processSleepScore,
+} from '../sleepScore/actions';
 
-describe('Sleep score reducer', () => {
-  it('should return a valid initial state', () => {
-    expect(sleepScoreReducer()).toEqual({
-      durationInBed: '',
-      durationAsleep: '',
-      sleepScore: -1,
+describe('Sleep score store', () => {
+  describe('updateDurationInBed action', () => {
+    it('stores the sleep increment value for duration in bed', () => {
+      const initialState = {
+        sleepScore: {},
+      };
+
+      const store = createStore(sleepScoreReducer, initialState);
+
+      store.dispatch(updateDurationInBed(8));
+
+      expect(store.getState().sleepScore.durationInBed).toEqual(8);
     });
   });
+  describe('updateDurationAsleep action', () => {
+    it('stores the sleep increment value for duration asleep', () => {
+      const initialState = {
+        sleepScore: {},
+      };
 
-  it('should update duration in bed property', () => {
-    expect(sleepScoreReducer(initialState, updateDurationInBed(3))).toEqual({
-      durationInBed: 3,
-      durationAsleep: '',
-      sleepScore: -1,
+      const store = createStore(sleepScoreReducer, initialState);
+
+      store.dispatch(updateDurationAsleep(10));
+
+      expect(store.getState().sleepScore.durationAsleep).toEqual(10);
     });
   });
+  describe('publishSleepScore action', () => {
+    it('stores the derived sleep score value', () => {
+      const initialState = {
+        sleepScore: {},
+      };
 
-  it('should update duration in bed property', () => {
-    expect(sleepScoreReducer(initialState, updateDurationAsleep(5))).toEqual({
-      durationInBed: '',
-      durationAsleep: 5,
-      sleepScore: -1,
+      const store = createStore(sleepScoreReducer, initialState);
+
+      store.dispatch(publishSleepScore(66));
+
+      expect(store.getState().sleepScore.score).toEqual(66);
     });
   });
+  describe('saveSleepScore action', () => {
+    it('posts the derived sleep score value to an external API', async () => {
+      const expected = {
+        score: 90,
+      };
 
-  it('should update the sleep score property', () => {
-    expect(
-      sleepScoreReducer(
-        {
-          durationInBed: 10,
-          durationAsleep: 6,
-          sleepScore: -1,
-        },
-        publishSleepScore(60),
-      ),
-    ).toEqual({
-      durationInBed: 10,
-      durationAsleep: 6,
-      sleepScore: 60,
-    });
-  });
+      const api = {
+        saveSleepScore: () => Promise.resolve(expected),
+      };
 
-  it('should derive and save the sleep score', async () => {
-    const saveSleepScoreResponse = {
-      status: 200,
-      sleepScore: 90,
-      status_message: 'Sleep Score Saved!',
-    };
+      const initialState = {
+        sleepScore: {},
+      };
 
-    const api = {
-      saveSleepScore: () => Promise.resolve(saveSleepScoreResponse),
-    };
+      const store = createStore(
+        sleepScoreReducer,
+        initialState,
+        applyMiddleware(thunk.withExtraArgument(api)),
+      );
 
-    const expectedState = await processSleepScore(
-      api,
-      { durationInBed: 10, durationAsleep: 9 },
-      90,
-    );
+      await store.dispatch(processSleepScore(90));
 
-    expect(expectedState).toEqual({
-      durationInBed: 10,
-      durationAsleep: 9,
-      sleepScore: 90,
+      expect(store.getState().sleepScore).toEqual(expected);
     });
   });
 });

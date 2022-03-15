@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import DurationInBedSelect from '../DurationSelect';
+import DurationInBedSelect from '../DurationSelect/DurationSelect';
 
 describe('Sleep Score', () => {
   it('update duration in bed value in store', () => {

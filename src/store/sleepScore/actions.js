@@ -14,10 +14,11 @@ export const updateDurationAsleep = duration => ({
   type: UPDATE_DURATION_ASLEEP,
 });
 
-export const processSleepScore = score => (dispatch, getState, api) =>
-  api.saveSleepScore(score).then(res => {
+export const processSleepScore = score => async (dispatch, getState, api) => {
+  return api.saveSleepScore(score).then(res => {
     dispatch(publishSleepScore(score));
   });
+};
 
 export const publishSleepScore = sleepScore => ({
   payload: sleepScore,

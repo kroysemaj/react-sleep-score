@@ -19,7 +19,7 @@ describe('Sleep score store', () => {
 
       store.dispatch(updateDurationInBed(8));
 
-      expect(store.getState().sleepScore.durationInBed).toEqual(8);
+      expect(store.getState().durationInBed).toEqual(8);
     });
   });
   describe('updateDurationAsleep action', () => {
@@ -32,7 +32,7 @@ describe('Sleep score store', () => {
 
       store.dispatch(updateDurationAsleep(10));
 
-      expect(store.getState().sleepScore.durationAsleep).toEqual(10);
+      expect(store.getState().durationAsleep).toEqual(10);
     });
   });
   describe('publishSleepScore action', () => {
@@ -45,7 +45,7 @@ describe('Sleep score store', () => {
 
       store.dispatch(publishSleepScore(66));
 
-      expect(store.getState().sleepScore.score).toEqual(66);
+      expect(store.getState().score).toEqual(66);
     });
   });
   describe('saveSleepScore action', () => {
@@ -54,8 +54,13 @@ describe('Sleep score store', () => {
         score: 90,
       };
 
+      const saveResponse = {
+        status: 200,
+        status_message: 'Sleep Score Saved!',
+      };
+
       const api = {
-        saveSleepScore: () => Promise.resolve(expected),
+        saveSleepScore: () => Promise.resolve(saveResponse),
       };
 
       const initialState = {

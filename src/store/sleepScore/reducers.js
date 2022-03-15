@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import {
   UPDATE_DURATION_ASLEEP,
   UPDATE_DURATION_IN_BED,
@@ -12,6 +11,7 @@ const initialState = {
 };
 
 const sleepScore = (state = initialState, action = {}) => {
+  console.log('reducer action', action.type, action.payload);
   switch (action.type) {
     case UPDATE_DURATION_IN_BED:
       return { ...state, durationInBed: action.payload };
@@ -24,4 +24,4 @@ const sleepScore = (state = initialState, action = {}) => {
   }
 };
 
-export default combineReducers({ sleepScore });
+export default sleepScore;

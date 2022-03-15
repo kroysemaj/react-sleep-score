@@ -1,3 +1,4 @@
+import { Box } from '@material-ui/core';
 import { sleepScoreDropdownOptions } from './helpers/sleepScoreDropdownOptions';
 
 const DurationSelect = ({ handleSelect, location }) => {
@@ -15,9 +16,11 @@ const DurationSelect = ({ handleSelect, location }) => {
 
   return (
     <>
-      <label htmlFor={`${location}-select"`}>{`Duration ${
-        location === 'asleep' ? 'asleep:' : 'in bed:'
-      }`}</label>
+      <Box sx={{ pb: 0.5 }}>
+        <label htmlFor={`${location}-select"`}>{`Duration ${
+          location === 'asleep' ? 'asleep:' : 'in bed:'
+        }`}</label>
+      </Box>
       <select
         name={location}
         id={`${location}-select`}

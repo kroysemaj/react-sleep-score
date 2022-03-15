@@ -11,7 +11,6 @@ const initialState = {
 };
 
 const sleepScore = (state = initialState, action = {}) => {
-  console.log('reducer action', action.type, action.payload);
   switch (action.type) {
     case UPDATE_DURATION_IN_BED:
       return { ...state, durationInBed: action.payload };

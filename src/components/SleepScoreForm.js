@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { Box, Button } from '@material-ui/core';
 import {
   processSleepScore,
   updateDurationAsleep,
@@ -22,13 +23,34 @@ export const SleepScoreForm = ({
   };
 
   return (
-    <form>
-      <DurationSelect location="in-bed" handleSelect={updateDurationInBed} />
-      <DurationSelect location="asleep" handleSelect={updateDurationAsleep} />
-      <button id="calc-btn" disabled={formIsValid} onClick={handleClick}>
-        Calculate
-      </button>
-    </form>
+    <Box>
+      <form>
+        <Box sx={{ mt: 2, mb: 1 }}>
+          <DurationSelect
+            location="in-bed"
+            handleSelect={updateDurationInBed}
+          />
+        </Box>
+        <Box sx={{ my: 1 }}>
+          <DurationSelect
+            location="asleep"
+            handleSelect={updateDurationAsleep}
+          />
+        </Box>
+        <Box sx={{ mt: 1, mb: 2 }}>
+          <Button
+            variant="contained"
+            color="success"
+            id="calc-btn"
+            disabled={formIsValid}
+            onClick={handleClick}
+            loading={false}
+          >
+            Calculate
+          </Button>
+        </Box>
+      </form>
+    </Box>
   );
 };
 

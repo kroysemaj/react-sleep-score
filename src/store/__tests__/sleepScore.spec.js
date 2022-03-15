@@ -48,7 +48,7 @@ describe('Sleep score store', () => {
       expect(store.getState().score).toEqual(66);
     });
   });
-  describe('saveSleepScore action', () => {
+  xdescribe('saveSleepScore action', () => {
     it('posts the derived sleep score value to an external API', async () => {
       const expected = {
         score: 90,

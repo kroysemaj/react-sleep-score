@@ -1,6 +1,6 @@
 # Sleep Score
 
-An app for tracking entering and saving your Sleepio Sleep Score(tm).
+An app for tracking entering and saving your Sleep-E-Time Sleep Score(tm).
 
 Production: https://sleep-score.netlify.app/
 

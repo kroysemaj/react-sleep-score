@@ -1,0 +1,86 @@
+{
+  "source": "mockoon:1.16.0",
+  "data": [
+    {
+      "type": "environment",
+      "item": {
+        "uuid": "ea2186dc-324c-4052-ad3b-782fda32e5df",
+        "lastMigration": 18,
+        "name": "Sleep Score API",
+        "endpointPrefix": "",
+        "latency": 0,
+        "port": 4000,
+        "hostname": "0.0.0.0",
+        "routes": [
+          {
+            "uuid": "9b70250e-9d3c-4497-8589-eab022886b28",
+            "documentation": "",
+            "method": "get",
+            "endpoint": "sleep-score/save",
+            "responses": [
+              {
+                "uuid": "e2a97e95-a58e-4b31-987d-9e54997ea774",
+                "body": "{\n  \"status\": 200,\n  \"status_message\": \"Sleep Score Saved!\",\n}",
+                "latency": 1000,
+                "statusCode": 200,
+                "label": "",
+                "headers": [
+                  {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                  }
+                ],
+                "filePath": "",
+                "sendFileAsBody": false,
+                "rules": [],
+                "rulesOperator": "OR",
+                "disableTemplating": false,
+                "fallbackTo404": false
+              },
+              {
+                "uuid": "fd5f6ff5-c634-460c-969e-fec4cb0c5fd9",
+                "body": "{}",
+                "latency": 0,
+                "statusCode": 400,
+                "label": "",
+                "headers": [],
+                "filePath": "",
+                "sendFileAsBody": false,
+                "rules": [],
+                "rulesOperator": "OR",
+                "disableTemplating": false,
+                "fallbackTo404": false
+              }
+            ],
+            "enabled": true,
+            "randomResponse": false,
+            "sequentialResponse": false
+          }
+        ],
+        "proxyMode": false,
+        "proxyHost": "",
+        "proxyRemovePrefix": false,
+        "https": false,
+        "cors": true,
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "proxyReqHeaders": [
+          {
+            "key": "",
+            "value": ""
+          }
+        ],
+        "proxyResHeaders": [
+          {
+            "key": "",
+            "value": ""
+          }
+        ]
+      }
+    }
+  ]
+}

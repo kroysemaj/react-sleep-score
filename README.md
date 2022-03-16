@@ -6,6 +6,8 @@ Production: https://sleep-score.netlify.app/
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f4f79a27-3ae0-4618-bef5-46244bcd84d7/deploy-status)](https://app.netlify.com/sites/sleep-score/deploys)
 
+Note: This is a frontend exercise. The backend is mocked at `localhost:4000/sleep-score/save`. I used [Mockoon](https://mockoon.com/) to stub the backend but you could also use Charles or any other mock server you like. My Mockoon endpoint configuration is included in the root of the of project (`mock-api.json`). Feel free to use it to avoid any network errors.
+
 Dependencies are locked with a `yarn.lock` file, so please use `yarn` and not
 `npm` for installing them.
 

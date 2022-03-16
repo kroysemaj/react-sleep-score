@@ -1,7 +1,9 @@
+import { combineReducers } from 'redux';
 import {
   UPDATE_DURATION_ASLEEP,
   UPDATE_DURATION_IN_BED,
   PUBLISH_SLEEP_SCORE,
+  START_LOADING,
 } from './actions';
 
 const initialState = {
@@ -23,4 +25,15 @@ const sleepScore = (state = initialState, action = {}) => {
   }
 };
 
-export default sleepScore;
+const loading = (state = false, action) => {
+  switch (action.type) {
+    case START_LOADING:
+      return true;
+    case PUBLISH_SLEEP_SCORE:
+      return false;
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({ sleepScore, loading });

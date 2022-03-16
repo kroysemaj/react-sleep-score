@@ -6,7 +6,8 @@ import SleepScoreResult from './SleepScoreResult';
 
 const SleepScore = () => {
   return (
-    <Card>
+    // why doesn't sx prop work on Card?
+    <Card style={{ marginTop: '16px' }}>
       <CardContent>
         <Typography variant="h4">Let's score your latest sleep!</Typography>
         <hr />

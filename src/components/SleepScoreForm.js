@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { Box, Button } from '@material-ui/core';
+import { Box } from '@material-ui/core';
+import LoadingButton from '@mui/lab/LoadingButton';
 import {
   processSleepScore,
   updateDurationAsleep,
@@ -13,6 +14,7 @@ export const SleepScoreForm = ({
   processSleepScore,
   updateDurationAsleep,
   updateDurationInBed,
+  loading,
 }) => {
   const formIsValid = durationAsleep === '' || durationInBed === '';
 
@@ -38,15 +40,17 @@ export const SleepScoreForm = ({
           />
         </Box>
         <Box sx={{ mt: 1, mb: 2 }}>
-          <Button
+          <LoadingButton
             variant="contained"
             color="primary"
             id="calc-btn"
+            data-testid="calc-btn"
             disabled={formIsValid}
             onClick={handleClick}
+            loading={loading}
           >
             Calculate
-          </Button>
+          </LoadingButton>
         </Box>
       </form>
     </Box>
@@ -54,8 +58,9 @@ export const SleepScoreForm = ({
 };
 
 const mapStateToProps = state => ({
-  durationInBed: state.sleepScore.durationInBed,
-  durationAsleep: state.sleepScore.durationAsleep,
+  durationInBed: state.sleepScore.sleepScore.durationInBed,
+  durationAsleep: state.sleepScore.sleepScore.durationAsleep,
+  loading: state.sleepScore.loading,
 });
 
 const mapDispatchToProps = {

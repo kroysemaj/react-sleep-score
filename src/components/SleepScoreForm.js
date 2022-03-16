@@ -40,11 +40,10 @@ export const SleepScoreForm = ({
         <Box sx={{ mt: 1, mb: 2 }}>
           <Button
             variant="contained"
-            color="success"
+            color="primary"
             id="calc-btn"
             disabled={formIsValid}
             onClick={handleClick}
-            loading={false}
           >
             Calculate
           </Button>
